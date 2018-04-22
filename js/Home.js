@@ -11,11 +11,13 @@ export default class Home extends React.Component {
         return (
             <View style={styles.container}>
 
-                <Text style={{fontSize: 30,fontWeight: 'bold'}}>Vytautas</Text>
+                <Text style={{fontSize: 30, fontWeight: 'bold'}}>Vytautas</Text>
                 <Image
                     style={{height: 200, width: 200}}
-                    source={{uri: "https://scontent.fvno3-1.fna.fbcdn.net/v/t1.0-1/p160x160/19601133_1559265897425897_5647389463585728393_n.jpg" +
-                        "?_nc_cat=0&oh=63a903065d27d0184e48810f294c07e9&oe=5B5D5AE5"}}/>
+                    source={{
+                        uri: "https://scontent.fvno3-1.fna.fbcdn.net/v/t1.0-1/p160x160/19601133_1559265897425897_5647389463585728393_n.jpg" +
+                        "?_nc_cat=0&oh=63a903065d27d0184e48810f294c07e9&oe=5B5D5AE5"
+                    }}/>
                 <Button
                     title="Profile"
                     color='#1C1356'

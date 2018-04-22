@@ -55,8 +55,10 @@ export default class Profile extends React.Component {
             <View style={styles.container}>
                 <View style={styles.profileBox}>
                     <FlexImage
-                        source={{uri: "https://scontent.fvno3-1.fna.fbcdn.net/v/t1.0-1/p160x160/19601133_1559265897425897_5647389463585728393_n.jpg" +
-                            "?_nc_cat=0&oh=63a903065d27d0184e48810f294c07e9&oe=5B5D5AE5"}}
+                        source={{
+                            uri: "https://scontent.fvno3-1.fna.fbcdn.net/v/t1.0-1/p160x160/19601133_1559265897425897_5647389463585728393_n.jpg" +
+                            "?_nc_cat=0&oh=63a903065d27d0184e48810f294c07e9&oe=5B5D5AE5"
+                        }}
                         style={{height: 130, width: 130}}
                     />
 
@@ -64,7 +66,7 @@ export default class Profile extends React.Component {
                 </View>
 
                 <View style={{alignItems: 'flex-start'}}>
-                    <Text style={{color: '#0f0f0f0',margin: 5,fontWeight: 'bold'}}>About me</Text>
+                    <Text style={[styles.statusText, {color: '#0f0f0f0'}, {fontWeight: 'bold'}]}>About me</Text>
                 </View>
 
                 <View style={styles.textBox}>
@@ -74,13 +76,13 @@ export default class Profile extends React.Component {
                                selectTextOnFocus
                                onChangeText={(textField) => this.saveData(textField)}
                                value={this.state.textField}
-                               borderBottomColor = '#1C1356'
+                               borderBottomColor='#1C1356'
                     >
                     </TextInput>
                 </View>
 
                 <View style={{alignItems: 'flex-end'}}>
-                    <Text style={styles.statusText}>{this.state.textField.length}/500</Text>
+                    <Text style={[styles.statusText, {color: 'white'}]}>{this.state.textField.length}/500</Text>
                 </View>
 
                 <View style={styles.thirdBox}>
@@ -106,7 +108,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#645C95',
-
     },
     profileBox: {
         flex: 1,
@@ -139,7 +140,6 @@ const styles = StyleSheet.create({
         fontFamily: 'sans-serif'
     },
     statusText: {
-        color: 'white',
         fontSize: 15,
         margin: 5,
         fontFamily: 'sans-serif'
