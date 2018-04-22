@@ -11,7 +11,7 @@ export default class Home extends React.Component {
         return (
             <View style={styles.container}>
 
-                <Text style={{fontSize: 30, color: '#1C1356'}}>Vytautas</Text>
+                <Text style={{fontSize: 30}}>Vytautas</Text>
                 <Image
                     style={{height: 200, width: 200}}
                     source={{uri: "https://scontent.fvno3-1.fna.fbcdn.net/v/t1.0-1/p160x160/19601133_1559265897425897_5647389463585728393_n.jpg" +

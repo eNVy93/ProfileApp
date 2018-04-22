@@ -19,7 +19,7 @@ export default class Profile extends React.Component {
         title: 'My profile',
         headerTitleStyle: {},
         headerStyle: {
-            color: '#645C95'
+            backgroundColor: '#645C95'
         },
 
     };
@@ -64,7 +64,7 @@ export default class Profile extends React.Component {
                 </View>
 
                 <View style={{alignItems: 'flex-start'}}>
-                    <Text style={styles.statusText}>about me</Text>
+                    <Text style={{color: '#0f0f0f0',margin: 5}}>About me</Text>
                 </View>
 
                 <View style={styles.textBox}>
@@ -74,6 +74,7 @@ export default class Profile extends React.Component {
                                selectTextOnFocus
                                onChangeText={(textField) => this.saveData(textField)}
                                value={this.state.textField}
+                               borderBottomColor = '#1C1356'
                     >
                     </TextInput>
                 </View>
@@ -83,7 +84,7 @@ export default class Profile extends React.Component {
                 </View>
 
                 <View style={styles.thirdBox}>
-                    <Text style={styles.smallText}>The temperature
+                    <Text style={styles.mediumText}>The temperature
                         in {this.state.city.replace(/"/g, "")} is:</Text>
                     <Text style={styles.bigText}> {this.state.temperature}°C </Text>
                     <Button
@@ -91,6 +92,7 @@ export default class Profile extends React.Component {
                         onPress={() => {
                             Linking.openURL('https://github.com/eNVy93/ProfileApp')
                         }}
+                        color='#1C1356'
                     />
                 </View>
 
@@ -132,7 +134,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
     statusText: {
-        color: 'gray',
+        color: 'white',
         fontSize: 15,
         margin: 5,
     }
