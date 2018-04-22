@@ -18,16 +18,6 @@ const RootStack = StackNavigator({
         screen: Home,
     },
     Profile: {
-        screen: Profile
+        screen: Profile,
     }
-});
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        alignContent: 'center',
-        justifyContent: 'space-evenly',
-    },
 });

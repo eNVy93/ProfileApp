@@ -1,6 +1,7 @@
 import React from 'react'
-import {StyleSheet, Text, View, Image, Button, TextInput, Linking} from 'react-native';
+import {StyleSheet, Text, View, Image, Button, TextInput, Linking, AsyncStorage} from 'react-native';
 import FlexImage from 'react-native-flex-image';
+
 
 function getWheatherJson() {
     return fetch('http://api.openweathermap.org/data/2.5/weather?q=Vilnius&APPID=da9e842d9489af6cc0f3bcf3fe8d9711')
@@ -13,19 +14,22 @@ function getWheatherJson() {
         });
 }
 
-
 export default class Profile extends React.Component {
+    static navigationOptions = {
+        title: 'My profile',
+        headerTitleStyle: {},
+        headerStyle: {
+            color: '#645C95'
+        },
+
+    };
+
     constructor(...args) {
         super(...args)
         this.state = {
             temperature: '',
             city: '',
-            textField: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' +
-            ' Praesent id interdum arcu. Aenean eu malesuada arcu. Ut ultricies augue' +
-            ' vel nisi ornare rhoncus. Phasellus eget volutpat dolor. Curabitur lorem eros' +
-            ', sollicitudin id posuere nec, lobortis nec neque. Nulla lorem dui, dictum a accumsan ' +
-            'et, fringilla non lectus. Praesent venenatis mauris facilisis urna fringilla, ut bibendum' +
-            ' tellus venenatis. Pellentesque vestibulum purus dui, ut pretium lectus aliquam at.'
+            textField: ''
         }
     }
 
@@ -34,8 +38,16 @@ export default class Profile extends React.Component {
             .then((resp) =>
                 this.setState({
                     temperature: JSON.stringify(Math.round(resp.main.temp) - 273),
-                    city: JSON.stringify(resp.name)
-                }))
+                    city: JSON.stringify(resp.name),
+                }));
+        AsyncStorage.getItem('textField').then((value) => {
+            this.setState({'textField': value});
+        })
+    }
+
+    saveData(text) {
+        AsyncStorage.setItem('textField', text);
+        this.setState({'textField': text})
     }
 
     render() {
@@ -43,30 +55,34 @@ export default class Profile extends React.Component {
             <View style={styles.container}>
                 <View style={styles.profileBox}>
                     <FlexImage
-                        source={{uri: "https://seeklogo.com/images/D/dota-2-logo-A8CAC9B4C9-seeklogo.com.png"}}
-                    style={{height:130,width:130}}
+                        source={{uri: "https://scontent.fvno3-1.fna.fbcdn.net/v/t1.0-1/p160x160/19601133_1559265897425897_5647389463585728393_n.jpg" +
+                            "?_nc_cat=0&oh=63a903065d27d0184e48810f294c07e9&oe=5B5D5AE5"}}
+                        style={{height: 130, width: 130}}
                     />
 
                     <Text style={styles.bigText}>Vytautas Netikšis</Text>
                 </View>
+
                 <View style={{alignItems: 'flex-start'}}>
                     <Text style={styles.statusText}>about me</Text>
                 </View>
+
                 <View style={styles.textBox}>
                     <TextInput style={styles.smallText}
                                multiline={true}
                                numberOfLines={10}
-                               clearButtonMode='while-editing'
-                               onChangeText={(textField) => this.setState({textField})}
+                               selectTextOnFocus
+                               onChangeText={(textField) => this.saveData(textField)}
                                value={this.state.textField}
                     >
                     </TextInput>
                 </View>
-                <View style={{alignItems: 'flex-end'}}>
-                    <Text style={styles.statusText}>88/120</Text>
-                </View>
-                <View style={styles.thirdBox}>
 
+                <View style={{alignItems: 'flex-end'}}>
+                    <Text style={styles.statusText}>{this.state.textField.length}/500</Text>
+                </View>
+
+                <View style={styles.thirdBox}>
                     <Text style={styles.smallText}>The temperature
                         in {this.state.city.replace(/"/g, "")} is:</Text>
                     <Text style={styles.bigText}> {this.state.temperature}°C </Text>
@@ -77,6 +93,7 @@ export default class Profile extends React.Component {
                         }}
                     />
                 </View>
+
             </View>
         );
     }
@@ -86,27 +103,22 @@ export default class Profile extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        justifyContent: 'space-around',
+        backgroundColor: '#645C95',
 
     },
     profileBox: {
         flex: 1,
-        backgroundColor: '#e2e2e2',
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
     },
     textBox: {
         flex: 1,
-        backgroundColor: '#bfbfbf',
-
-
+        marginLeft: 5,
     },
     thirdBox: {
         flex: 1,
-        backgroundColor: '#969696',
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
         alignItems: 'center',
 
     },
@@ -119,9 +131,10 @@ const styles = StyleSheet.create({
     smallText: {
         fontSize: 15,
     },
-    statusText:{
+    statusText: {
         color: 'gray',
         fontSize: 15,
+        margin: 5,
     }
 
 });
