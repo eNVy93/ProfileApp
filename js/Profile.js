@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     },
     textBox: {
         flex: 1,
-        marginLeft: 5,
+        marginLeft: 10,
     },
     thirdBox: {
         flex: 1,
