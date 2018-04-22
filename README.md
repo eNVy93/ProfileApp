@@ -1,3 +1,7 @@
+## Hands on task. React Native mobile app.
+
+A simple profile app consisting of two views: Home and Profile. Flex box used for layout, AsyncStorage was used to store text-field data and to retrieve it after the app is reopened. Also api.openweathermap.org API was used to get temperature informaton.
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
