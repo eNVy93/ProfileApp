@@ -64,7 +64,7 @@ export default class Profile extends React.Component {
                 </View>
 
                 <View style={{alignItems: 'flex-start'}}>
-                    <Text style={{color: '#0f0f0f0',margin: 5}}>About me</Text>
+                    <Text style={{color: '#0f0f0f0',margin: 5,fontWeight: 'bold'}}>About me</Text>
                 </View>
 
                 <View style={styles.textBox}>
@@ -126,17 +126,23 @@ const styles = StyleSheet.create({
     },
     bigText: {
         fontSize: 30,
+        fontFamily: 'sans-serif',
+        fontWeight: 'bold'
     },
     mediumText: {
         fontSize: 20,
+        fontFamily: 'sans-serif',
+        fontWeight: 'bold'
     },
     smallText: {
         fontSize: 15,
+        fontFamily: 'sans-serif'
     },
     statusText: {
         color: 'white',
         fontSize: 15,
         margin: 5,
+        fontFamily: 'sans-serif'
     }
 
 });
