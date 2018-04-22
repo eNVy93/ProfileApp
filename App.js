@@ -13,33 +13,9 @@ export default class App extends React.Component {
     }
 }
 
-class HomeScreen extends React.Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <View>
-                    <Text style={{fontSize: 30}}>My name</Text>
-                </View>
-                <View>
-                    <Image
-                        style={{height: 200, width: 200}}
-                        source={{uri: "https://seeklogo.com/images/D/dota-2-logo-A8CAC9B4C9-seeklogo.com.png"}}/>
-                </View>
-                <View>
-                    <Button
-                        title="Profile"
-                        onPress={() => this.props.navigation.navigate('Profile')}
-                    />
-                </View>
-
-            </View>
-        );
-    }
-}
-
 const RootStack = StackNavigator({
     Home: {
-        screen: HomeScreen,
+        screen: Home,
     },
     Profile: {
         screen: Profile
