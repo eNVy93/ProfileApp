@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, Text, View, Image, Button, TextInput, Linking, AsyncStorage} from 'react-native';
+import {StyleSheet, Text, View, Button, TextInput, Linking, AsyncStorage} from 'react-native';
 import FlexImage from 'react-native-flex-image';
 
 
