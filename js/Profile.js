@@ -49,7 +49,7 @@ export default class Profile extends React.Component {
         AsyncStorage.setItem('textField', text);
         this.setState({'textField': text})
     }
-    textFieldLenght(textField){
+    static textFieldLength(textField){
         if (textField.length == null){
             return '0'
         } else {
@@ -73,7 +73,7 @@ export default class Profile extends React.Component {
                 </View>
 
                 <View style={{alignItems: 'flex-start'}}>
-                    <Text style={[styles.statusText, {color: '#0f0f0f0'}, {fontWeight: 'bold'}]}>About me</Text>
+                    <Text style={[styles.statusText, {color: '#f0f0f0'}, {fontWeight: 'bold'}]}>About me</Text>
                 </View>
 
                 <View style={styles.textBox}>
@@ -89,7 +89,7 @@ export default class Profile extends React.Component {
                 </View>
 
                 <View style={{alignItems: 'flex-end'}}>
-                    <Text style={[styles.statusText, {color: 'white'}]}>{this.textFieldLenght(this.state.textField)}/500</Text>
+                    <Text style={[styles.statusText, {color: 'white'}]}>{this.textFieldLength(this.state.textField)}/500</Text>
                 </View>
 
                 <View style={styles.thirdBox}>
@@ -133,21 +133,21 @@ const styles = StyleSheet.create({
 
     },
     bigText: {
-        fontSize: 30,
+        fontSize: 25,
         fontFamily: 'sans-serif',
         fontWeight: 'bold'
     },
     mediumText: {
-        fontSize: 20,
+        fontSize: 18,
         fontFamily: 'sans-serif',
         fontWeight: 'bold'
     },
     smallText: {
-        fontSize: 15,
+        fontSize: 14,
         fontFamily: 'sans-serif'
     },
     statusText: {
-        fontSize: 15,
+        fontSize: 14,
         margin: 5,
         fontFamily: 'sans-serif'
     }
