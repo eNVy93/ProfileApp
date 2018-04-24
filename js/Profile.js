@@ -49,6 +49,13 @@ export default class Profile extends React.Component {
         AsyncStorage.setItem('textField', text);
         this.setState({'textField': text})
     }
+    textFieldLenght(textField){
+        if (textField.length == null){
+            return '0'
+        } else {
+            return textField.length;
+        }
+    }
 
     render() {
         return (
@@ -59,7 +66,7 @@ export default class Profile extends React.Component {
                             uri: "https://scontent.fvno3-1.fna.fbcdn.net/v/t1.0-1/p160x160/19601133_1559265897425897_5647389463585728393_n.jpg" +
                             "?_nc_cat=0&oh=63a903065d27d0184e48810f294c07e9&oe=5B5D5AE5"
                         }}
-                        style={{height: 130, width: 130}}
+                        style={{height: 120, width: 120}}
                     />
 
                     <Text style={styles.bigText}>Vytautas Netikšis</Text>
@@ -82,7 +89,7 @@ export default class Profile extends React.Component {
                 </View>
 
                 <View style={{alignItems: 'flex-end'}}>
-                    <Text style={[styles.statusText, {color: 'white'}]}>{this.state.textField.length}/500</Text>
+                    <Text style={[styles.statusText, {color: 'white'}]}>{this.textFieldLenght(this.state.textField)}/500</Text>
                 </View>
 
                 <View style={styles.thirdBox}>
